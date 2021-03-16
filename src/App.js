@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Tmdb from './Tmdb';
+import MovieRow from './components/MovieRow';
 
 export default () => {
 
@@ -16,8 +17,13 @@ export default () => {
   }, []);
 
   return (
-    <div>
-      ola mundo!
+    <div className="page">
+      <section className="lists">
+        {movieList.map((item, key) => (
+          <MovieRow key={key} title = {item.title} items={item.items}  />
+        ))}
+      </section>
+
     </div>
   );
 }
